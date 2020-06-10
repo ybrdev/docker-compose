@@ -1,0 +1,21 @@
+version: '3'
+
+volumes:
+  mysqlData:
+    driver: local
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: db_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    expose:
+        - "33060"
+    ports:
+        - "33060:3306"
+    volumes:
+     - mysqlData:/var/lib/mysql
