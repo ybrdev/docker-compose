@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 volumes:
   mysqlData:
@@ -17,13 +17,3 @@ services:
       - "3306:3306"
     volumes:
       - mysqlData:/var/lib/mysql
-  mongo:
-    image: mongo:4.2
-    container_name: mongo
-    ports:
-      - "27017:27017"
-  jenkins:
-    image: jenkins/jenkins:2.222.4-lts
-    container_name: jenkins
-    ports:
-      - "8080:8080"
